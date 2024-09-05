@@ -10,7 +10,7 @@
       
       try {
         await sql`
-          INSERT INTO employees (firstName, lastName, dateOfBirth, email, phoneNumber, address, jobTitle, department, salary)
+          INSERT INTO employee (firstName, lastName, dateOfBirth, email, phoneNumber, address, jobTitle, department, salary)
           VALUES (${firstName}, ${lastName}, ${dateOfBirth}, ${email}, ${phoneNumber}, ${address}, ${jobTitle}, ${department}, ${salary})
         `;
       
