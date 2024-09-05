@@ -26,12 +26,27 @@ export default function AddEmployee() {
     e.preventDefault();
     console.log('Form Data:', formData);
 
-    await fetch('/api/employee',
-      {
-        method: 'POST',
-        body: JSON.stringify(FormData)
-      }
-    )
+   try {
+         const response = await fetch('/api/employee', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(formData),
+         });
+   
+         if (!response.ok) {
+           throw new Error('Failed to add employee');
+         }
+   
+         const result = await response.json();
+         console.log('Employee added successfully:', result);
+         // You can add further actions here, such as showing a success message or redirecting
+       } catch (error) {
+         console.error('Error adding employee:', error);
+         // You can add error handling here, such as showing an error message to the user
+       }
+   
 
   };
 

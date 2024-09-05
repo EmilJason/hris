@@ -7,7 +7,7 @@
       if (!firstName || !lastName || !dateOfBirth || !email || !phoneNumber || !address || !jobTitle || !department || !salary) {
         return res.status(400).json({ error: 'Missing required fields' });
       }
-
+      
       try {
         await sql`
           INSERT INTO employees (firstName, lastName, dateOfBirth, email, phoneNumber, address, jobTitle, department, salary)
